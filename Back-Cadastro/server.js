@@ -1,7 +1,6 @@
 const express = require('express');
 const mysql = require('mysql2');
 const cors = require('cors');
-const bcrypt = require('bcrypt');
 const app = express();
 app.use(express.json());
 app.use(cors()); // Habilita CORS
@@ -23,12 +22,23 @@ db.connect(err => {
     console.log('Conectado ao banco de dados MySQL como ID ' + db.threadId);
 });
 
+// Função para obter o próximo ID
+const getNextId = (callback) => {
+    db.query('SELECT MAX(id) AS maxId FROM Usuarios', (err, results) => {
+        if (err) {
+            return callback(err, null);
+        }
+        const nextId = (results[0].maxId || 0) + 1;
+        callback(null, nextId);
+    });
+};
+
 // Rota para registrar um novo usuário
-app.post('/register', async (req, res) => {
+app.post('/register', (req, res) => {
     const { email, senha } = req.body;
 
     // Verificar se o usuário já existe
-    db.query('SELECT * FROM Usuarios WHERE email = ?', [email], async (err, results) => {
+    db.query('SELECT * FROM Usuarios WHERE email = ?', [email], (err, results) => {
         if (err) {
             return res.status(500).send(err);
         }
@@ -36,30 +46,29 @@ app.post('/register', async (req, res) => {
             return res.status(400).json({ message: 'Usuário já existe.' });
         }
 
-        const match = await bcrypt.compare(senha, user.senha);
-        if (!match) {
-            return res.status(401).json({ message: 'Credenciais inválidas.' });
-        }
-        
-
-        // Inserir novo usuário
-        db.query('INSERT INTO Usuarios (email, senha) VALUES (?, ?)', [email, hashedPassword], (err, results) => {
+        // Obter o próximo ID
+        getNextId((err, nextId) => {
             if (err) {
                 return res.status(500).send(err);
             }
-            res.status(201).json({ id: results.insertId, email });
+
+            // Inserir novo usuário com a senha em texto claro
+            db.query('INSERT INTO Usuarios (id, email, senha) VALUES (?, ?, ?)', [nextId, email, senha], (err, results) => {
+                if (err) {
+                    return res.status(500).send(err);
+                }
+                res.status(201).json({ id: nextId, email });
+            });
         });
-        
     });
 });
 
-// Rota para autenticar um usuário
 // Rota para autenticar um usuário
 app.post('/login', (req, res) => {
     const { email, senha } = req.body;
 
     // Verificar se o usuário existe
-    db.query('SELECT * FROM Usuarios WHERE email = ?', [email], async (err, results) => {
+    db.query('SELECT * FROM Usuarios WHERE email = ?', [email], (err, results) => {
         if (err) {
             return res.status(500).send(err);
         }
@@ -67,24 +76,18 @@ app.post('/login', (req, res) => {
             return res.status(401).json({ message: 'Credenciais inválidas.' });
         }
 
-        const user = results[0]; // Defina 'user' como o primeiro resultado da consulta
-        // Verificar a senha
-        try {
-            const match = await bcrypt.compare(senha, user.senha);
-            if (!match) {
-                return res.status(401).json({ message: 'Credenciais inválidas.' });
-            }
-
-            res.json({ message: 'Login bem-sucedido!', user });
-        } catch (error) {
-            res.status(500).json({ message: 'Erro ao verificar a senha.', error });
+        const user = results[0];
+        // Verificar a senha (comparação em texto claro)
+        if (senha !== user.senha) {
+            return res.status(401).json({ message: 'Credenciais inválidas.' });
         }
+
+        res.json({ message: 'Login bem-sucedido!', user });
     });
 });
 
-
 // Iniciar o servidor
-const PORT = process.env.PORT || 3001; // Modificado para a porta 3001
+const PORT = process.env.PORT || 5001; // Alterado para a porta 5000
 app.listen(PORT, () => {
     console.log(`Servidor rodando na porta ${PORT}`);
 });
