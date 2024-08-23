@@ -36,8 +36,11 @@ app.post('/register', async (req, res) => {
             return res.status(400).json({ message: 'Usuário já existe.' });
         }
 
-        // Hash da senha
-        const hashedPassword = await bcrypt.hash(senha, 10);
+        const match = await bcrypt.compare(senha, user.senha);
+        if (!match) {
+            return res.status(401).json({ message: 'Credenciais inválidas.' });
+        }
+        
 
         // Inserir novo usuário
         db.query('INSERT INTO Usuarios (email, senha) VALUES (?, ?)', [email, hashedPassword], (err, results) => {
@@ -46,9 +49,11 @@ app.post('/register', async (req, res) => {
             }
             res.status(201).json({ id: results.insertId, email });
         });
+        
     });
 });
 
+// Rota para autenticar um usuário
 // Rota para autenticar um usuário
 app.post('/login', (req, res) => {
     const { email, senha } = req.body;
@@ -62,16 +67,21 @@ app.post('/login', (req, res) => {
             return res.status(401).json({ message: 'Credenciais inválidas.' });
         }
 
-        const user = results[0];
+        const user = results[0]; // Defina 'user' como o primeiro resultado da consulta
         // Verificar a senha
-        const match = await bcrypt.compare(senha, user.senha);
-        if (!match) {
-            return res.status(401).json({ message: 'Credenciais inválidas.' });
-        }
+        try {
+            const match = await bcrypt.compare(senha, user.senha);
+            if (!match) {
+                return res.status(401).json({ message: 'Credenciais inválidas.' });
+            }
 
-        res.json({ message: 'Login bem-sucedido!', user });
+            res.json({ message: 'Login bem-sucedido!', user });
+        } catch (error) {
+            res.status(500).json({ message: 'Erro ao verificar a senha.', error });
+        }
     });
 });
+
 
 // Iniciar o servidor
 const PORT = process.env.PORT || 3001; // Modificado para a porta 3001
