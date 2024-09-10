@@ -1,0 +1,189 @@
+/* css/styles-modulos.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background: url('../img/background-telamodulos.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20px 0; /* Ajuste de padding */
+}
+
+h1 {
+    font-size: 45px;
+    font-weight: bold;
+    color: #c00;
+    margin: 0;
+}
+
+.logo {
+    position: absolute;
+    right: 20px; /* Ajuste de posicionamento */
+    top: 20px;   /* Ajuste de posicionamento */
+}
+
+.logo img {
+    height: 65px;
+}
+
+main {
+    padding: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 190px; /* Ajuste para evitar sobreposição com o header */
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.modulo {
+    background-color: #fff;
+    padding: 25px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.445);
+    transition: transform 0.2s ease;
+    display: flex;
+    flex-direction: column; /* Alinhar ícone e texto na vertical */
+    align-items: center;    /* Centralizar conteúdo horizontalmente */
+}
+
+.modulo:hover {
+    transform: translateY(-5px);
+    background-color: rgb(248, 247, 247);
+}
+
+.modulo img {
+    width: 50px;
+    margin-bottom: 10px;
+}
+
+.modulo span {
+    font-size: 20px;
+    font-weight: bold;
+    color: #c00;
+}
+
+.seta {
+    position: fixed;
+    bottom: 35px;
+    left: 50px;
+    transition: transform 0.2s ease;
+}
+
+.seta img {
+    width: 50px;
+}
+.seta:hover{
+  transform: translateY(-5px);
+}
+
+/* CONFIGURANDO ESTILO DA JANELA MODAL DE LOGIN */
+
+/* Estilo para a Modal de Login */
+.modal {
+    display: none; /* Oculta a modal por padrão */
+    position: fixed;
+    z-index: 1001; /* Abaixo do header */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo semitransparente */
+  }
+  
+  .modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 300px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close-btn:hover,
+  .close-btn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  
+  .modal form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .modal label {
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .modal input {
+    margin-bottom: 15px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .modal button {
+    padding: 10px;
+    background-color: #c00;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .modal button:hover {
+    background-color: #900;
+  }
+  
+  .modal-header {
+    display: flex;
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+    margin-bottom: 20px;
+}
+
+.icon-login {
+    width: 25px; /* Ajuste o tamanho conforme necessário */
+    height: 25px;
+    margin-right: 10px; /* Espaço entre o ícone e o texto */
+}
+
+.modal-header h2 {
+    font-size: 24px; /* Tamanho do texto do título */
+    font-weight: bold;
+    color: #333;
+    margin: 0; /* Remove margem padrão do h2 */
+}

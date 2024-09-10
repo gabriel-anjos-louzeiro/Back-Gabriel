@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    margin: 0;
+    background-color: rgb(255, 255, 255);
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 15%;
+    background-color: rgb(249, 249, 249);
+    padding: 10px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidebar .logo {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    width: 90%;
+}
+
+.sidebar .logo img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+    margin-bottom: 150px;
+}
+
+.sidebar .menu-button {
+    display: flex;
+    align-items: center;
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #adadad;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: left; /* Alinha o texto à esquerda */
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 5px;
+    text-decoration: none; /* Remove a sublinhação */
+}
+
+.sidebar .menu-button:hover {
+    background-color: rgb(139, 139, 139);
+}
+
+/* Ajuste dos ícones dos botões do menu lateral */
+.button-icon {
+    margin-left: 25px; /* Distância da lateral esquerda do botão */
+    margin-right: 20px; /* Distância entre o ícone e o texto */
+    width: 18px; /* Ajuste conforme necessário */
+    height: 18px; /* Ajuste conforme necessário */
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(180deg) brightness(100%) contrast(100%);
+}
+
+.main-content {
+  width: 85%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.main-content h1 {
+  margin: 0;
+  padding: 20px 0;
+  font-size: 40px;
+  color: #b92535;
+  text-align: center;
+}

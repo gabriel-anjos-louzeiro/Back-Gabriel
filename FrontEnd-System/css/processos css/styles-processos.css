@@ -1,0 +1,561 @@
+/* Importação da fonte Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    margin: 0;
+    background-color: rgb(255, 255, 255);
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 15%;
+    background-color: rgb(249, 249, 249);
+    padding: 10px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidebar .logo {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    width: 90%;
+}
+
+.sidebar .logo img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+    margin-bottom: 150px;
+}
+
+.sidebar .menu-button {
+    display: flex;
+    align-items: center;
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #adadad;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: left; /* Alinha o texto à esquerda */
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 5px;
+    text-decoration: none; /* Remove a sublinhação */
+}
+
+.sidebar .menu-button:hover {
+    background-color: rgb(139, 139, 139);
+}
+
+/* Ajuste dos ícones dos botões do menu lateral */
+.button-icon {
+    margin-left: 25px; /* Distância da lateral esquerda do botão */
+    margin-right: 20px; /* Distância entre o ícone e o texto */
+    width: 18px; /* Ajuste conforme necessário */
+    height: 18px; /* Ajuste conforme necessário */
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(180deg) brightness(100%) contrast(100%);
+}
+
+
+.main-content {
+    width: 85%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.main-content h1 {
+    margin: 0;
+    padding: 20px 0;
+    font-size: 40px;
+    color: #b92535;
+    text-align: center;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px; /* Ajuste a margem conforme necessário */
+    margin-left: 10PX;
+}
+
+.search-container {
+    display: flex;
+    align-items:  normal;
+    margin-top: 1px;
+    margin-bottom: 20px;
+    margin-left: 5px;
+}
+
+.search-container label {
+    padding: 5px 10px;
+    background-color: #c4c4c4;
+    color: #3d3d3d;
+    text-align: center;
+}
+
+.search-container input {
+    margin-right: 10px;
+    padding: 5px;
+    width: 45px;
+    border: 1px solid #ccc;
+    text-align: center;
+    font-size: 18px;
+}
+
+.search-container button {
+    padding: 10px 10px;
+    background-color: #8b8b8b;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: transform 0.2s ease;
+}
+
+.botao-pesquisar{
+    margin-left: 10px; /* Distância da lateral esquerda do botão */
+    margin-right: 10px; /* Distância entre o ícone e o texto */
+    width: 20px; /* Ajuste conforme necessário */
+    height: 20px; /* Ajuste conforme necessário */
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(180deg) brightness(100%) contrast(100%);
+}
+
+.search-container button:hover {
+    background-color: rgb(163, 163, 163);
+    transform: translateY(-3px);
+}
+
+.form-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    width: 100%;
+}
+
+#label-nome {
+    position: absolute;
+    top: 130px;
+    margin-left: 660px;
+    background-color: #c4c4c4;
+    color: #3d3d3d;
+    padding: 2.5px;
+    width: 156px; /* Ajuste conforme necessário */
+    text-align: center;
+}
+
+#nome {
+    position: absolute;
+    top: 160px;
+    margin-left: 660px;
+    padding: 5px;
+    width: 150px; /* Ajuste conforme necessário */
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+#label-cnpj {
+    position: absolute;
+    top: 130px;
+    margin-left: 806.5px; /* Ajuste para posicionar ao lado do campo nome */
+    background-color: #c4c4c4;
+    color: #3d3d3d;
+    padding: 2.5px;
+    width: 136px; /* Ajuste conforme necessário */
+    text-align: center;
+}
+
+#cnpj {
+    position: absolute;
+    top: 160px;
+    margin-left: 806.5px; /* Ajuste para posicionar ao lado do campo nome */
+    padding: 5px;
+    width: 130px; /* Ajuste conforme necessário */
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+#label-inep {
+    position: absolute;
+    top: 130px;
+    margin-left: 934px; /* Ajuste para posicionar ao lado do campo nome */
+    background-color: #c4c4c4;
+    color: #3d3d3d;
+    padding: 2.5px;
+    width: 100px; /* Ajuste conforme necessário */
+    text-align: center;
+}
+
+#inep {
+    position: absolute;
+    top: 160px;
+    margin-left: 934px; /* Ajuste para posicionar ao lado do campo nome */
+    padding: 5px;
+    width: 94px; /* Ajuste conforme necessário */
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+#label-telefone {
+    position: absolute;
+    top: 130px;
+    margin-left: 1025px; /* Ajuste para posicionar ao lado do campo nome */
+    background-color: #c4c4c4;
+    color: #3d3d3d;
+    padding: 2.5px;
+    width: 100px; /* Ajuste conforme necessário */
+    text-align: center;
+}
+
+#telefone {
+    position: absolute;
+    top: 160px;
+    margin-left: 1025px; /* Ajuste para posicionar ao lado do campo nome */
+    padding: 5px;
+    width: 94px; /* Ajuste conforme necessário */
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+#label-cpfgov {
+    position: absolute;
+    top: 130px;
+    margin-left: 1116px; /* Ajuste para posicionar ao lado do campo nome */
+    background-color: #c4c4c4;
+    color: #3d3d3d;
+    padding: 2.5px;
+    width: 100px; /* Ajuste conforme necessário */
+    text-align: center;
+}
+
+#cpfgov {
+    position: absolute;
+    top: 160px;
+    margin-left: 1116px; /* Ajuste para posicionar ao lado do campo nome */
+    padding: 5px;
+    width: 94px; /* Ajuste conforme necessário */
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+#label-agencia {
+    position: absolute;
+    top: 130px;
+    margin-left: 1207px; /* Ajuste para posicionar ao lado do campo nome */
+    background-color: #c4c4c4;
+    color: #3d3d3d;
+    padding: 2.5px;
+    width: 100px; /* Ajuste conforme necessário */
+    text-align: center;
+}
+
+#agencia {
+    position: absolute;
+    top: 160px;
+    margin-left: 1207px; /* Ajuste para posicionar ao lado do campo nome */
+    padding: 5px;
+    width: 94px; /* Ajuste conforme necessário */
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+#label-data_visita {
+    position: absolute;
+    top: 190px;
+    margin-left: 660px; /* Ajuste para posicionar ao lado do campo nome */
+    background-color: #c4c4c4;
+    color: #3d3d3d;
+    padding: 2.5px;
+    width: 107px; /* Ajuste conforme necessário */
+    text-align: center;
+}
+
+#data_visita {
+    position: absolute;
+    top: 220px;
+    margin-left: 660px; /* Ajuste para posicionar ao lado do campo nome */
+    padding: 5px;
+    width: 100px; /* Ajuste conforme necessário */
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+#label-email{
+    position: absolute;
+    top: 190px;
+    margin-left: 773px; /* Ajuste para posicionar ao lado do campo nome */
+    background-color: #c4c4c4;
+    color: #3d3d3d;
+    padding: 2.5px;
+    width: 187px; /* Ajuste conforme necessário */
+    text-align: center;
+}
+
+#email {
+    position: absolute;
+    top: 220px;
+    margin-left: 773px; /* Ajuste para posicionar ao lado do campo nome */
+    padding: 5px;
+    width: 180px; /* Ajuste conforme necessário */
+    border: 1px solid #ccc;
+    text-align: center;
+    height: 17px;
+}
+
+#label-senhagov{
+    position: absolute;
+    top: 190px;
+    margin-left: 966px; /* Ajuste para posicionar ao lado do campo nome */
+    background-color: #c4c4c4;
+    color: #3d3d3d;
+    padding: 2.5px;
+    width: 100px; /* Ajuste conforme necessário */
+    text-align: center;
+}
+
+#senhagov {
+    position: absolute;
+    top: 220px;
+    margin-left: 966px; /* Ajuste para posicionar ao lado do campo nome */
+    padding: 5px;
+    width: 93px; /* Ajuste conforme necessário */
+    border: 1px solid #ccc;
+    text-align: center;
+    height: 17px;
+}
+
+#label-senhaemail{
+    position: absolute;
+    top: 190px;
+    margin-left: 1072px; /* Ajuste para posicionar ao lado do campo nome */
+    background-color: #c4c4c4;
+    color: #3d3d3d;
+    padding: 2.5px;
+    width: 100px; /* Ajuste conforme necessário */
+    text-align: center;
+}
+
+#senhaemail {
+    position: absolute;
+    top: 220px;
+    margin-left: 1072px; /* Ajuste para posicionar ao lado do campo nome */
+    padding: 5px;
+    width: 93px; /* Ajuste conforme necessário */
+    border: 1px solid #ccc;
+    text-align: center;
+    height: 17px;
+}
+
+#label-protesto{
+    position: absolute;
+    top: 190px;
+    margin-left: 1178px; /* Ajuste para posicionar ao lado do campo nome */
+    background-color: #c4c4c4;
+    color: #3d3d3d;
+    padding: 2.5px;
+    width: 100px; /* Ajuste conforme necessário */
+    text-align: center;
+}
+
+#protesto {
+    position: absolute;
+    top: 220px;
+    margin-left: 1178px; /* Ajuste para posicionar ao lado do campo nome */
+    padding: 5px;
+    width: 93px; /* Ajuste conforme necessário */
+    border: 1px solid #ccc;
+    text-align: center;
+    height: 17px;
+}
+
+#label-conta{
+    position: absolute;
+    top: 190px;
+    margin-left: 1284px; /* Ajuste para posicionar ao lado do campo nome */
+    background-color: #c4c4c4;
+    color: #3d3d3d;
+    padding: 2.5px;
+    width: 100px; /* Ajuste conforme necessário */
+    text-align: center;
+}
+
+#conta {
+    position: absolute;
+    top: 220px;
+    margin-left: 1284px; /* Ajuste para posicionar ao lado do campo nome */
+    padding: 5px;
+    width: 93px; /* Ajuste conforme necessário */
+    border: 1px solid #ccc;
+    text-align: center;
+    height: 17px;
+}
+
+#label-selectprocessos{
+    position: absolute;
+    top: 200px;
+    margin-left: 5px; /* Ajuste para posicionar ao lado do campo nome */
+    background-color: #c4c4c4;
+    color: #3d3d3d;
+    padding: 2.5px;
+    width: 220px; /* Ajuste conforme necessário */
+    text-align: center;
+}
+
+#selectprocessos {
+    position: absolute;
+    top: 230px;
+    margin-left: 5px; /* Ajuste para posicionar ao lado do campo nome */
+    padding: 5px;
+    width: 225px; /* Ajuste conforme necessário */
+    border: 1px solid #ccc;
+    text-align: center;
+    height: 35px;
+}
+
+
+/* Linha horizontal ajustada para 200px do topo */
+.horizontal-line {
+    width: 84%;
+    height: 1px;
+    background-color: rgb(211, 211, 211);
+    position: absolute;
+    top: 280px;
+    right: 5px;
+}
+
+#titulopromotoria{
+    position: absolute;
+    margin-top: 40px;
+    margin-left: 590px;
+    color: #b92535;
+    font-size: 30px;
+}
+
+#titulocme{
+    position: absolute;
+    margin-top: 40px;
+    margin-left: 590px;
+    color: #b92535;
+    font-size: 30px;
+}
+
+#titulocee{
+    position: absolute;
+    margin-top: 40px;
+    margin-left: 590px;
+    color: #b92535;
+    font-size: 30px;
+}
+
+#titulofundeb{
+    position: absolute;
+    margin-top: 40px;
+    margin-left: 590px;
+    color: #b92535;
+    font-size: 30px;
+}
+
+#titulomerenda{
+    position: absolute;
+    margin-top: 40px;
+    margin-left: 590px;
+    color: #b92535;
+    font-size: 30px;
+}
+
+#titulovigilancia{
+    position: absolute;
+    margin-top: 40px;
+    margin-left: 590px;
+    color: #b92535;
+    font-size: 30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ESTILOS DOS CAMPO DO PROCESSO DE FUNDEB*/
+#label-credenciamentop{
+    position: absolute;
+    top: 380px;
+    margin-left: 25px; /* Ajuste para posicionar ao lado do campo nome */
+    background-color: #c4c4c4;
+    color: #3d3d3d;
+    padding: 2.5px;
+    width: 220px; /* Ajuste conforme necessário */
+    text-align: center;
+}
+
+#selectcredenciamentop {
+    position: absolute;
+    top: 410px;
+    margin-left: 25px; /* Ajuste para posicionar ao lado do campo nome */
+    padding: 5px;
+    width: 225px; /* Ajuste conforme necessário */
+    border: 1px solid #ccc;
+    text-align: center;
+    height: 33px;
+}
+
+#label-montagemp{
+    position: absolute;
+    top: 380px;
+    margin-left: 320px; /* Ajuste para posicionar ao lado do campo nome */
+    background-color: #c4c4c4;
+    color: #3d3d3d;
+    padding: 2.5px;
+    width: 220px; /* Ajuste conforme necessário */
+    text-align: center;
+}
+
+#selectmontagemp {
+    position: absolute;
+    top: 410px;
+    margin-left: 320px; /* Ajuste para posicionar ao lado do campo nome */
+    padding: 5px;
+    width: 225px; /* Ajuste conforme necessário */
+    border: 1px solid #ccc;
+    text-align: center;
+    height: 33px;
+}
+
+#label-responsavelp{
+    position: absolute;
+    top: 380px;
+    margin-left: 620px; /* Ajuste para posicionar ao lado do campo nome */
+    background-color: #c4c4c4;
+    color: #3d3d3d;
+    padding: 2.5px;
+    width: 220px; /* Ajuste conforme necessário */
+    text-align: center;
+}
+
+#selectresponsavelp {
+    position: absolute;
+    top: 410px;
+    margin-left: 620px; /* Ajuste para posicionar ao lado do campo nome */
+    padding: 5px;
+    width: 225px; /* Ajuste conforme necessário */
+    border: 1px solid #ccc;
+    text-align: center;
+    height: 33px;
+}

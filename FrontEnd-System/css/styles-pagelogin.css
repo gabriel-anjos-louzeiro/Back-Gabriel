@@ -1,0 +1,98 @@
+/* css/styles-pagelogin.css */
+
+/* Importação da fonte Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
+
+body {
+  font-family: "Poppins", Arial, sans-serif;
+  background: url("../img/background-telalogin.jpg") no-repeat center center
+    fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.login-container {
+  background-color: rgba(255, 255, 255, 0.856);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.692);
+  text-align: center;
+  width: 100%;
+  max-width: 300px;
+}
+
+.login-container .logo {
+  margin-bottom: 20px;
+}
+
+.login-container .logo img {
+  width: 290px; /* Ajuste o tamanho conforme necessário */
+}
+
+.login-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-container label {
+  margin-bottom: 5px;
+  text-align: left;
+  color: #272626;
+  font-family: "Poppins", sans-serif;
+}
+
+.login-container input,
+.login-container button {
+  margin-bottom: 5px;
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box; /* Adicionando box-sizing para garantir que padding e border sejam incluídos na largura total */
+}
+
+.login-container input {
+  border: 1px solid #ccc;
+}
+
+.login-container button {
+  margin-top: 15px;
+  background-color: #bb2938;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  transition: transform 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.445);
+  font-size: 20px;
+}
+
+.login-container button:hover {
+  background-color: rgb(160, 23, 36);
+  transform: translateY(-5px);
+}
+
+/* Estilização do placeholder */
+::placeholder {
+  color: #999;
+  font-family: "Poppins", sans-serif;
+}
+
+.link-container {
+  text-align: left;
+  margin-bottom: 10px; /* Espaço adicional para separar o link do botão */
+}
+
+.link-container a {
+  color: #333;
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+}
+
+.link-container a:hover {
+  text-decoration: underline;
+}
