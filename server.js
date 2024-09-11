@@ -1,45 +1,29 @@
-require('dotenv').config();
 const express = require('express');
-const mysql = require('mysql2');
+const cors = require('cors');
+const path = require('path');
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = 3000;
 
-// Crie a conexão com o banco de dados
-const connection = mysql.createConnection({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASS,
-  database: 'sistemaelmo'
-});
+app.use(cors());
+app.use(express.json());
 
-// Teste a conexão ao iniciar o servidor
-connection.connect((err) => {
-  if (err) {
-    console.error('Erro ao conectar ao banco de dados:', err);
-    process.exit(1); // Sai do processo com um código de erro
-  }
-  console.log('Conectado ao banco de dados com sucesso!');
-});
+// Usar o arquivo da tela de login
+app.use(express.static(path.join(__dirname, '../FrontEnd-System')));
 
-// Rota de teste
+// Servir o arquivo index.html
 app.get('/', (req, res) => {
-  res.send('Servidor funcionando e banco de dados conectado!');
+  res.sendFile(path.join(__dirname, '../FrontEnd-System', 'index.html'));
 });
 
-// Inicie o servidor
+// Rotas de usuários e módulos
+const usuariosRoutes = require('./Routes/usuarios routes/login');
+app.use('/api', usuariosRoutes); // Rota do acesso de login
+
+const modulosRoutes = require('./Routes/usuarios routes/modulos');
+app.use('/api', modulosRoutes); // Rota do acesso de login nos módulos
+
+// Iniciar o servidor
 app.listen(port, () => {
-  console.log(`Servidor ouvindo na porta ${port}`);
-});
-
-// Feche a conexão com o banco de dados quando o servidor for encerrado
-process.on('SIGINT', () => {
-  connection.end((err) => {
-    if (err) {
-      console.error('Erro ao fechar a conexão com o banco de dados:', err);
-    } else {
-      console.log('Conexão com o banco de dados fechada.');
-    }
-    process.exit(0);
-  });
+  console.log(`Servidor rodando em http://localhost:${port}`);
 });
